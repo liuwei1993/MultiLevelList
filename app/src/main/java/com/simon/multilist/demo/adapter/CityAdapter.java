@@ -13,6 +13,7 @@ import com.simon.multilist.bean.Bean;
 import com.simon.multilist.bean.Parent;
 import com.simon.multilist.demo.bean.Area;
 import com.simon.multilist.demo.bean.City;
+import com.simon.multilist.demo.bean.Cities;
 import com.simon.multilist.demo.bean.Street;
 import com.simon.multilist.util.DataConverter;
 
@@ -23,11 +24,11 @@ import com.simon.multilist.util.DataConverter;
 
 public class CityAdapter extends MultiAdapter implements OnItemClickListener {
 
-    private City city;
+    private Cities cities;
 
-    public CityAdapter(City city) {
+    public CityAdapter(Cities city) {
         super();
-        this.city = city;
+        this.cities = city;
         setDataList(DataConverter.convert(city));
         init();
     }
@@ -68,7 +69,7 @@ public class CityAdapter extends MultiAdapter implements OnItemClickListener {
         } else {
             parent.open();
         }
-        setDataList(DataConverter.convert(city));
+        setDataList(DataConverter.convert(cities));
         notifyDataSetChanged();
     }
 

@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import com.simon.multilist.bean.Bean;
 import com.simon.multilist.bean.Parent;
 import com.simon.multilist.demo.bean.Area;
+import com.simon.multilist.demo.bean.Cities;
 import com.simon.multilist.demo.bean.City;
 import com.simon.multilist.demo.bean.Street;
 
@@ -33,7 +34,10 @@ public class DataConverter {
         return targetList;
     }
 
-    public static City createDemoData() {
+    public static Cities createDemoData() {
+
+        Cities cities = new Cities("重要城市");
+
         City beijing = new City("北京");
 
         Area chaoyang = new Area("朝阳");
@@ -51,7 +55,26 @@ public class DataConverter {
         beijing.addChild(chaoyang);
         beijing.addChild(haidian);
         beijing.open();
-        return beijing;
+
+        City shanghai = new City("上海");
+
+        Area dongqu = new Area("东区");
+        dongqu.addChild(new Street("街道一"));
+        dongqu.addChild(new Street("街道二"));
+        chaoyang.open();
+        Area xiqu = new Area("西区");
+        xiqu.addChild(new Street("街道三"));
+        xiqu.addChild(new Street("街道四"));
+
+        shanghai.addChild(dongqu);
+        shanghai.addChild(xiqu);
+        shanghai.open();
+
+        cities.addChild(beijing);
+        cities.addChild(shanghai);
+        cities.open();
+
+        return cities;
     }
 
 
