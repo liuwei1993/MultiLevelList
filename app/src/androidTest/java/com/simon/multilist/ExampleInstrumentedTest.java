@@ -33,7 +33,7 @@ public class ExampleInstrumentedTest {
     }
     @Test
     public void convertTest(){
-        Parent<? extends Bean> beijing = createDemoData();
+        Parent beijing = createDemoData();
         beijing.open();
         Log.d("test","Tree " + beijing);
         List<? extends Bean> list = convert(beijing);

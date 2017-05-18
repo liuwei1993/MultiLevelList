@@ -11,6 +11,8 @@ import android.widget.TextView;
 import com.simon.multilist.R;
 import com.simon.multilist.bean.Bean;
 import com.simon.multilist.bean.Parent;
+import com.simon.multilist.core.MultiAdapter;
+import com.simon.multilist.core.OnItemClickListener;
 import com.simon.multilist.demo.bean.Area;
 import com.simon.multilist.demo.bean.City;
 import com.simon.multilist.demo.bean.Cities;
@@ -188,12 +190,5 @@ public class CityAdapter extends MultiAdapter implements OnItemClickListener {
         }
     }
 
-
-}
-interface OnItemClickListener {
-
-    void onClickChild(Bean child);
-
-    void onClickParent(Parent parent);
 
 }

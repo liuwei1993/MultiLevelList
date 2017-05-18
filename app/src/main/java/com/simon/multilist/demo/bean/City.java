@@ -7,7 +7,7 @@ import com.simon.multilist.bean.Parent;
  * Created by simon on 17-5-12.
  */
 
-public class City extends Parent<Area> {
+public class City extends Parent {
 
     public City(String name) {
         super(name);

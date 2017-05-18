@@ -1,4 +1,4 @@
-package com.simon.multilist.demo.adapter;
+package com.simon.multilist.core;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -81,8 +81,12 @@ public abstract class MultiAdapter extends RecyclerView.Adapter<MultiAdapter.Bas
         return creatorSet.get(dataType);
     }
 
+    protected int getViewHolderCreatorCount() {
+        return creatorSet.size();
+    }
 
-    static abstract class BaseHolder<B extends Bean> extends RecyclerView.ViewHolder {
+
+    protected static abstract class BaseHolder<B extends Bean> extends RecyclerView.ViewHolder {
 
         private B data;
 

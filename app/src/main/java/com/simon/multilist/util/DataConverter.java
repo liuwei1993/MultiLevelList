@@ -19,14 +19,14 @@ import java.util.List;
 
 public class DataConverter {
 
-    public static List<Bean> convert(@NonNull Parent<? extends Bean> rootNode) {
+    public static List<Bean> convert(@NonNull Parent rootNode) {
         ArrayList<Bean> targetList = new ArrayList<>();
         List<? extends Bean> children = rootNode.getChildren();
         for (Bean child : children) {
             targetList.add(child);
             if(child instanceof Parent) {
                 if(((Parent) child).isOpen()){
-                    List<? extends Bean> convert = convert(((Parent<? extends Bean>) child));
+                    List<? extends Bean> convert = convert(((Parent) child));
                     targetList.addAll(convert);
                 }
             }

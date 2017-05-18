@@ -8,9 +8,9 @@ import java.util.List;
  * Created by simon on 17-5-12.
  */
 
-public class Parent<T extends Bean> extends Bean {
+public class Parent extends Bean {
 
-    private List<T> children = new ArrayList<>();
+    private List<Bean> children = new ArrayList<>();
 
     private boolean isOpen = false;
 
@@ -22,19 +22,19 @@ public class Parent<T extends Bean> extends Bean {
         return children.size();
     }
 
-    public void addChild(T child) {
+    public void addChild(Bean child) {
         children.add(child);
     }
 
-    public void removeChild(T child) {
+    public void removeChild(Bean child) {
         children.remove(child);
     }
 
-    public List<T> getChildren() {
+    public List<Bean> getChildren() {
         return children;
     }
 
-    public List<T> open() {
+    public List<Bean> open() {
         isOpen = true;
         return children;
     }
@@ -43,13 +43,19 @@ public class Parent<T extends Bean> extends Bean {
         return isOpen;
     }
 
-    public void close() {
+    /**
+    * @return items count to close.
+    * */
+    public List<Bean> close() {
+        List<Bean> list = new ArrayList<>();
         isOpen = false;
-        for (T child : children) {
-            if(child instanceof Parent) {
-                ((Parent) child).close();
+        for (Bean child : children) {
+            list.add(child);
+            if(child instanceof Parent && ((Parent) child).isOpen()) {
+                list.addAll(((Parent) child).close());
             }
         }
+        return list;
     }
 
    /* @Override
