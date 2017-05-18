@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * base parent bean
+ * base parent node
  * Created by simon on 17-5-12.
  */
 
@@ -58,12 +58,4 @@ public class Parent extends Bean {
         return list;
     }
 
-   /* @Override
-    public String toString() {
-        return "{" +
-                "name=" + getName() +
-                "children=" + children +
-                ", isOpen=" + isOpen +
-                '}';
-    }*/
 }

@@ -13,13 +13,13 @@ import com.simon.multilist.bean.Bean;
 import com.simon.multilist.bean.Parent;
 import com.simon.multilist.core.MultiAdapter;
 import com.simon.multilist.core.MultiLevelAdapter;
-import com.simon.multilist.core.OnItemClickListener;
+import com.simon.multilist.core.OnMultiLevelItemClickListener;
 import com.simon.multilist.demo.bean.Area;
 import com.simon.multilist.demo.bean.City;
 import com.simon.multilist.demo.bean.Street;
 
 /**
- * new demo
+ * 扩展自多级列表Adapter实现
  * Created by simon on 17-5-18.
  */
 
@@ -75,7 +75,7 @@ public class NewCityAdapter extends MultiLevelAdapter {
 
         private TextView tvCityName;
 
-        CityViewHolder(View itemView, OnItemClickListener listener) {
+        CityViewHolder(View itemView, OnMultiLevelItemClickListener listener) {
             super(itemView, TYPE_CITY, listener);
             tvCityName = (TextView) itemView.findViewById(R.id.city_name);
         }
@@ -100,7 +100,7 @@ public class NewCityAdapter extends MultiLevelAdapter {
 
         private TextView tvAreaName;
 
-        AreaViewHolder(View itemView, OnItemClickListener listener) {
+        AreaViewHolder(View itemView, OnMultiLevelItemClickListener listener) {
             super(itemView, TYPE_AREA, listener);
             tvAreaName = (TextView) itemView.findViewById(R.id.area_name);
         }
@@ -126,7 +126,7 @@ public class NewCityAdapter extends MultiLevelAdapter {
 
         private TextView tvStreetName;
 
-        StreetViewHolder(View itemView, int type, OnItemClickListener listener) {
+        StreetViewHolder(View itemView, int type, OnMultiLevelItemClickListener listener) {
             super(itemView, TYPE_STREET, listener);
             tvStreetName = (TextView) itemView.findViewById(R.id.street_name);
         }

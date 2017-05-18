@@ -14,7 +14,7 @@ import com.simon.multilist.bean.Bean;
 import java.util.List;
 
 /**
- * 多级列表adapter
+ * 多类型列表adapter
  * Created by simon on 17-5-12.
  */
 

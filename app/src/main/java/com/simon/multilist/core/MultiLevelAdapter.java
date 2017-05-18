@@ -9,11 +9,11 @@ import com.simon.multilist.util.DataConverter;
 import java.util.List;
 
 /**
- *
+ * 扩展自多类型Adapter的多级Adapter
  * Created by simon on 17-5-12.
  */
 
-public abstract class MultiLevelAdapter<T extends Parent> extends MultiAdapter implements OnItemClickListener {
+public abstract class MultiLevelAdapter<T extends Parent> extends MultiAdapter implements OnMultiLevelItemClickListener {
 
     private T dataRoot;
 
@@ -66,13 +66,13 @@ public abstract class MultiLevelAdapter<T extends Parent> extends MultiAdapter i
 
         private View itemView;
 
-        public MultiLevelViewHolder(View itemView, int type, OnItemClickListener listener) {
+        public MultiLevelViewHolder(View itemView, int type, OnMultiLevelItemClickListener listener) {
             super(itemView, type);
             this.itemView = itemView;
             setOnClickListener(listener);
         }
 
-        public void setOnClickListener(final OnItemClickListener listener) {
+        public void setOnClickListener(final OnMultiLevelItemClickListener listener) {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

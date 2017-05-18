@@ -12,7 +12,7 @@ import com.simon.multilist.R;
 import com.simon.multilist.bean.Bean;
 import com.simon.multilist.bean.Parent;
 import com.simon.multilist.core.MultiAdapter;
-import com.simon.multilist.core.OnItemClickListener;
+import com.simon.multilist.core.OnMultiLevelItemClickListener;
 import com.simon.multilist.demo.bean.Area;
 import com.simon.multilist.demo.bean.City;
 import com.simon.multilist.demo.bean.Cities;
@@ -20,11 +20,11 @@ import com.simon.multilist.demo.bean.Street;
 import com.simon.multilist.util.DataConverter;
 
 /**
- *
+ * 扩展自多类型列表Adapter实现
  * Created by simon on 17-5-12.
  */
 
-public class CityAdapter extends MultiAdapter implements OnItemClickListener {
+public class CityAdapter extends MultiAdapter implements OnMultiLevelItemClickListener {
 
     private Cities cities;
 
@@ -89,13 +89,13 @@ public class CityAdapter extends MultiAdapter implements OnItemClickListener {
 
         private TextView tvCityName;
 
-        CityViewHolder(View itemView, int type, OnItemClickListener listener) {
+        CityViewHolder(View itemView, int type, OnMultiLevelItemClickListener listener) {
             super(itemView, type);
             tvCityName = (TextView) itemView.findViewById(R.id.city_name);
             setOnClickListener(listener);
         }
 
-        public void setOnClickListener(final OnItemClickListener listener) {
+        public void setOnClickListener(final OnMultiLevelItemClickListener listener) {
             tvCityName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -127,13 +127,13 @@ public class CityAdapter extends MultiAdapter implements OnItemClickListener {
 
         private TextView tvAreaName;
 
-        AreaViewHolder(View itemView, int type, OnItemClickListener listener) {
+        AreaViewHolder(View itemView, int type, OnMultiLevelItemClickListener listener) {
             super(itemView, type);
             tvAreaName = (TextView) itemView.findViewById(R.id.area_name);
             setOnClickListener(listener);
         }
 
-        public void setOnClickListener(final OnItemClickListener listener) {
+        public void setOnClickListener(final OnMultiLevelItemClickListener listener) {
             tvAreaName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -166,13 +166,13 @@ public class CityAdapter extends MultiAdapter implements OnItemClickListener {
 
         private TextView tvStreetName;
 
-        StreetViewHolder(View itemView, int type, OnItemClickListener listener) {
+        StreetViewHolder(View itemView, int type, OnMultiLevelItemClickListener listener) {
             super(itemView, type);
             tvStreetName = (TextView) itemView.findViewById(R.id.street_name);
             setOnClickListener(listener);
         }
 
-        public void setOnClickListener(final OnItemClickListener listener) {
+        public void setOnClickListener(final OnMultiLevelItemClickListener listener) {
             tvStreetName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

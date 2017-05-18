@@ -1,7 +1,7 @@
 package com.simon.multilist.bean;
 
 /**
- * base bean
+ * base node
  * Created by simon on 17-5-12.
  */
 
