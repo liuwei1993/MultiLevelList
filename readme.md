@@ -5,6 +5,7 @@
 - 2 展示线性数据
 - 3 处理点击事件，如果点击父节点则展开或关闭其子节点，并刷新列表（存在性能问题，后期优化）
 - 4 已经优化，实现局部刷新
+<img src="https://raw.githubusercontent.com/liuwei1993/MultiLevelList/master/screenshot.jpg" width="300px"/>
 
 ## 2.how to use:
 
