@@ -9,7 +9,7 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.simon.multilist.bean.Bean;
+import com.simon.multilist.core.tree.INode;
 
 import java.util.List;
 
@@ -24,20 +24,20 @@ public abstract class MultiAdapter extends RecyclerView.Adapter<MultiAdapter.Bas
 
     private SparseArray<ViewHolderCreator> creatorSet = new SparseArray<>();
 
-    private List<Bean> dataList;
+    private List<INode> dataList;
 
     public MultiAdapter() {
     }
 
-    public MultiAdapter(List<Bean> dataList) {
+    public MultiAdapter(List<INode> dataList) {
         this.dataList = dataList;
     }
 
-    public void setDataList(List<Bean> dataList) {
+    public void setDataList(List<INode> dataList) {
         this.dataList = dataList;
     }
 
-    public List<Bean> getDataList() {
+    public List<INode> getDataList() {
         return dataList;
     }
 
@@ -54,7 +54,7 @@ public abstract class MultiAdapter extends RecyclerView.Adapter<MultiAdapter.Bas
     @Override
     public void onBindViewHolder(BaseHolder holder, int position) {
         if (dataList != null) {
-            Bean data = dataList.get(position);
+            INode data = dataList.get(position);
             holder.updateData(data);
         }
     }
@@ -69,7 +69,7 @@ public abstract class MultiAdapter extends RecyclerView.Adapter<MultiAdapter.Bas
         return getItemViewType(dataList.get(position));
     }
 
-    public abstract int getItemViewType(Bean data);
+    public abstract int getItemViewType(INode data);
 
     public void registerViewHolderCreator(int dataType, ViewHolderCreator creator) {
         if(creator != null) {
@@ -86,7 +86,7 @@ public abstract class MultiAdapter extends RecyclerView.Adapter<MultiAdapter.Bas
     }
 
 
-    protected static abstract class BaseHolder<B extends Bean> extends RecyclerView.ViewHolder {
+    protected static abstract class BaseHolder<B extends INode> extends RecyclerView.ViewHolder {
 
         private B data;
 

@@ -2,9 +2,10 @@ package com.simon.multilist.core;
 
 import android.view.View;
 
-import com.simon.multilist.bean.Bean;
-import com.simon.multilist.bean.Parent;
-import com.simon.multilist.util.DataConverter;
+import com.simon.multilist.demo.bean.BaseNode;
+import com.simon.multilist.demo.bean.BaseParentNode;
+import com.simon.multilist.core.tree.INode;
+import com.simon.multilist.demo.DataConverter;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * Created by simon on 17-5-12.
  */
 
-public abstract class MultiLevelAdapter<T extends Parent> extends MultiAdapter implements OnMultiLevelItemClickListener {
+public abstract class MultiLevelAdapter<T extends BaseParentNode> extends MultiAdapter implements OnMultiLevelItemClickListener {
 
     private T dataRoot;
 
@@ -43,18 +44,18 @@ public abstract class MultiLevelAdapter<T extends Parent> extends MultiAdapter i
     protected abstract void registerViewHolderCreators();
 
     @Override
-    public abstract void onClickChild(Bean child);
+    public abstract void onClickChild(BaseNode child);
 
     @Override
-    public void onClickParent(Parent parent) {
-        List<Bean> dataList = getDataList();
+    public void onClickParent(BaseParentNode parent) {
+        List<INode> dataList = getDataList();
         int index = dataList.indexOf(parent);
         if(parent.isOpen()) {
-            List<Bean> closeList = parent.close();
+            List<INode> closeList = parent.close();
             dataList.removeAll(closeList);
             notifyItemRangeRemoved(index + 1, closeList.size());
         } else {
-            List<Bean> list = parent.open();
+            List<INode> list = parent.open();
             dataList.addAll(index + 1,list);
             notifyItemRangeInserted(index + 1, list.size());
 
@@ -62,7 +63,7 @@ public abstract class MultiLevelAdapter<T extends Parent> extends MultiAdapter i
     }
 
 
-    public static abstract class MultiLevelViewHolder<T extends Bean> extends MultiAdapter.BaseHolder<T> {
+    public static abstract class MultiLevelViewHolder<T extends BaseNode> extends MultiAdapter.BaseHolder<T> {
 
         private View itemView;
 
@@ -78,8 +79,8 @@ public abstract class MultiLevelAdapter<T extends Parent> extends MultiAdapter i
                 public void onClick(View v) {
                     T data = getData();
                     if(listener != null && data != null) {
-                        if(data instanceof Parent) {
-                            listener.onClickParent(((Parent) data));
+                        if(data instanceof BaseParentNode) {
+                            listener.onClickParent(((BaseParentNode) data));
                         } else {
                             listener.onClickChild(data);
                         }

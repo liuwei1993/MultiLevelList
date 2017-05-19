@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import com.simon.multilist.R;
 import com.simon.multilist.demo.adapter.NewCityAdapter;
 import com.simon.multilist.demo.bean.Cities;
-import com.simon.multilist.util.DataConverter;
 
 public class MainActivity extends AppCompatActivity {
 

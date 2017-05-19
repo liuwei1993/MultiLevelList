@@ -1,15 +1,17 @@
-package com.simon.multilist.bean;
+package com.simon.multilist.demo.bean;
+
+import com.simon.multilist.core.tree.INode;
 
 /**
  * base node
  * Created by simon on 17-5-12.
  */
 
-public class Bean {
+public class BaseNode implements INode{
 
     private String name;
 
-    public Bean(String name) {
+    public BaseNode(String name) {
         this.name = name;
     }
 

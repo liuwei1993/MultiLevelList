@@ -9,11 +9,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.simon.multilist.R;
-import com.simon.multilist.bean.Bean;
-import com.simon.multilist.bean.Parent;
+import com.simon.multilist.demo.bean.BaseNode;
+import com.simon.multilist.demo.bean.BaseParentNode;
 import com.simon.multilist.core.MultiAdapter;
 import com.simon.multilist.core.MultiLevelAdapter;
 import com.simon.multilist.core.OnMultiLevelItemClickListener;
+import com.simon.multilist.core.tree.INode;
 import com.simon.multilist.demo.bean.Area;
 import com.simon.multilist.demo.bean.City;
 import com.simon.multilist.demo.bean.Street;
@@ -27,7 +28,7 @@ public class NewCityAdapter extends MultiLevelAdapter {
 
     private Context context;
 
-    public NewCityAdapter(Context context, Parent cities) {
+    public NewCityAdapter(Context context, BaseParentNode cities) {
         super(cities);
         this.context = context;
     }
@@ -40,13 +41,13 @@ public class NewCityAdapter extends MultiLevelAdapter {
     }
 
     @Override
-    public void onClickChild(Bean child) {
+    public void onClickChild(BaseNode child) {
         Toast.makeText(context, child.getName() + " is on click !", Toast.LENGTH_SHORT).show();
     }
 
 
     @Override
-    public int getItemViewType(Bean data) {
+    public int getItemViewType(INode data) {
 
         if(data instanceof City) return TYPE_CITY;
 
@@ -118,7 +119,7 @@ public class NewCityAdapter extends MultiLevelAdapter {
         @Override
         public BaseHolder create(Context context, ViewGroup parent) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_street, parent, false);
-            return new NewCityAdapter.StreetViewHolder(view, TYPE_STREET, NewCityAdapter.this);
+            return new NewCityAdapter.StreetViewHolder(view, NewCityAdapter.this);
         }
     }
 
@@ -126,7 +127,7 @@ public class NewCityAdapter extends MultiLevelAdapter {
 
         private TextView tvStreetName;
 
-        StreetViewHolder(View itemView, int type, OnMultiLevelItemClickListener listener) {
+        StreetViewHolder(View itemView, OnMultiLevelItemClickListener listener) {
             super(itemView, TYPE_STREET, listener);
             tvStreetName = (TextView) itemView.findViewById(R.id.street_name);
         }

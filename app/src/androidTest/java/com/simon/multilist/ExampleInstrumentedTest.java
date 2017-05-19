@@ -5,16 +5,16 @@ import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 import android.util.Log;
 
-import com.simon.multilist.bean.Bean;
-import com.simon.multilist.bean.Parent;
+import com.simon.multilist.demo.bean.BaseParentNode;
+import com.simon.multilist.core.tree.INode;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.List;
 
-import static com.simon.multilist.util.DataConverter.convert;
-import static com.simon.multilist.util.DataConverter.createDemoData;
+import static com.simon.multilist.demo.DataConverter.convert;
+import static com.simon.multilist.demo.DataConverter.createDemoData;
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -33,10 +33,10 @@ public class ExampleInstrumentedTest {
     }
     @Test
     public void convertTest(){
-        Parent beijing = createDemoData();
+        BaseParentNode beijing = createDemoData();
         beijing.open();
         Log.d("test","Tree " + beijing);
-        List<? extends Bean> list = convert(beijing);
+        List<? extends INode> list = convert(beijing);
         Log.d("test", "List " + list);
     }
 

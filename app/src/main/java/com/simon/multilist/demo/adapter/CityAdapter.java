@@ -9,15 +9,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.simon.multilist.R;
-import com.simon.multilist.bean.Bean;
-import com.simon.multilist.bean.Parent;
+import com.simon.multilist.demo.bean.BaseNode;
+import com.simon.multilist.demo.bean.BaseParentNode;
 import com.simon.multilist.core.MultiAdapter;
 import com.simon.multilist.core.OnMultiLevelItemClickListener;
+import com.simon.multilist.core.tree.INode;
 import com.simon.multilist.demo.bean.Area;
 import com.simon.multilist.demo.bean.City;
 import com.simon.multilist.demo.bean.Cities;
 import com.simon.multilist.demo.bean.Street;
-import com.simon.multilist.util.DataConverter;
+import com.simon.multilist.demo.DataConverter;
 
 /**
  * 扩展自多类型列表Adapter实现
@@ -38,7 +39,7 @@ public class CityAdapter extends MultiAdapter implements OnMultiLevelItemClickLi
 
 
     @Override
-    public int getItemViewType(Bean data) {
+    public int getItemViewType(INode data) {
 
         if(data instanceof City) return TYPE_CITY;
 
@@ -60,12 +61,12 @@ public class CityAdapter extends MultiAdapter implements OnMultiLevelItemClickLi
     }
 
     @Override
-    public void onClickChild(Bean child) {
+    public void onClickChild(BaseNode child) {
         Log.d("test","on click " + child.getName());
     }
 
     @Override
-    public void onClickParent(Parent parent) {
+    public void onClickParent(BaseParentNode parent) {
         if(parent.isOpen()) {
             parent.close();
         } else {

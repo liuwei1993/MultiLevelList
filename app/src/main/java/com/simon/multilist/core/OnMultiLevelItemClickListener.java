@@ -1,7 +1,7 @@
 package com.simon.multilist.core;
 
-import com.simon.multilist.bean.Bean;
-import com.simon.multilist.bean.Parent;
+import com.simon.multilist.demo.bean.BaseNode;
+import com.simon.multilist.demo.bean.BaseParentNode;
 
 /**
  * 多级列表item点击事件监听器
@@ -9,8 +9,8 @@ import com.simon.multilist.bean.Parent;
  */
 public interface OnMultiLevelItemClickListener {
 
-    void onClickChild(Bean child);
+    void onClickChild(BaseNode child);
 
-    void onClickParent(Parent parent);
+    void onClickParent(BaseParentNode parent);
 
 }

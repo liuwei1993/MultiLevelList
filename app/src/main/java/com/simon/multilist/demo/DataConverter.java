@@ -1,9 +1,10 @@
-package com.simon.multilist.util;
+package com.simon.multilist.demo;
 
 import android.support.annotation.NonNull;
 
-import com.simon.multilist.bean.Bean;
-import com.simon.multilist.bean.Parent;
+import com.simon.multilist.demo.bean.BaseParentNode;
+import com.simon.multilist.core.tree.INode;
+import com.simon.multilist.core.tree.IParent;
 import com.simon.multilist.demo.bean.Area;
 import com.simon.multilist.demo.bean.Cities;
 import com.simon.multilist.demo.bean.City;
@@ -19,14 +20,14 @@ import java.util.List;
 
 public class DataConverter {
 
-    public static List<Bean> convert(@NonNull Parent rootNode) {
-        ArrayList<Bean> targetList = new ArrayList<>();
-        List<? extends Bean> children = rootNode.getChildren();
-        for (Bean child : children) {
+    public static List<INode> convert(@NonNull IParent rootNode) {
+        ArrayList<INode> targetList = new ArrayList<>();
+        List<? extends INode> children = rootNode.getChildren();
+        for (INode child : children) {
             targetList.add(child);
-            if(child instanceof Parent) {
-                if(((Parent) child).isOpen()){
-                    List<? extends Bean> convert = convert(((Parent) child));
+            if(child instanceof BaseParentNode) {
+                if(((BaseParentNode) child).isOpen()){
+                    List<? extends INode> convert = convert(((IParent) child));
                     targetList.addAll(convert);
                 }
             }
