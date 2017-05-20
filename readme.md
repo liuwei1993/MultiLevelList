@@ -8,9 +8,9 @@
 - 3 处理点击事件，如果点击父节点则展开或关闭其子节点，并刷新列表（存在性能问题，后期优化）
 - 4 已经优化，实现局部刷新
 
-## 2.how to use:
+## 2.使用方法
 
-> Step 1. Add the JitPack repository to your build file
+> Step 1. 添加JitPack repository到你的主项目build.gradle文件
 
 ```
 allprojects {
@@ -20,7 +20,7 @@ allprojects {
     }
 }
 ```
-> Step 2. Add the dependency
+> Step 2. 添加依赖
 
 ```
 dependencies {
